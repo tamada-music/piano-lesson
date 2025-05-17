@@ -1100,10 +1100,10 @@ line-height: 1.5;
     background-color: $beige02;
     text-align: center; // 必要に応じて削除
     padding-top: 170px;
-    padding-bottom: 50px;
+    padding-bottom: 130px;
     @include mq("md") {
         padding-top: 100px;
-        padding-bottom: 30px;
+        padding-bottom: 60px;
     }
     @include mq("sp") {
         padding-top: 50px;
@@ -1130,7 +1130,7 @@ line-height: 1.5;
     background-color: $button;
     margin-bottom: 20px; /* 必要な隙間の値を設定 */
     border-radius: 10px;
-    margin: 0 20px 20px;
+    margin: 0 20px 30px;
     @include mq("md") {
         padding: 10px 35px 10px 10px;
     }

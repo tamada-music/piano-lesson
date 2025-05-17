@@ -1384,12 +1384,12 @@ select::-ms-expand {
   background-color: #F9F4EC;
   text-align: center;
   padding-top: 170px;
-  padding-bottom: 50px;
+  padding-bottom: 130px;
 }
 @media screen and (max-width: 768px) {
   .blog {
     padding-top: 100px;
-    padding-bottom: 30px;
+    padding-bottom: 60px;
   }
 }
 @media screen and (max-width: 375px) {
@@ -1424,7 +1424,7 @@ select::-ms-expand {
   background-color: #87997A;
   margin-bottom: 20px; /* 必要な隙間の値を設定 */
   border-radius: 10px;
-  margin: 0 20px 20px;
+  margin: 0 20px 30px;
 }
 @media screen and (max-width: 768px) {
   .blog__accordion-title {

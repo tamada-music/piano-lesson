@@ -80,16 +80,23 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // トップへ戻るボタンの表示制御
-  const topBtn = document.querySelector(".for-top-btn");
-  const fvElement = document.getElementById("fv");
 
-  if (topBtn && fvElement) {
+  const topBtn = document.querySelector(".for-top-btn");
+  const introElement = document.getElementById("introduction");
+
+  if (topBtn && introElement) {
+    const introTop = introElement.offsetTop; // ページ全体からの絶対位置を取得
+
     window.addEventListener("scroll", () => {
-      const fvHeight = fvElement.offsetHeight;
-      const scrollPosition = window.scrollY;
-      topBtn.classList.toggle("hidden", scrollPosition <= fvHeight);
+      const scrollY = window.scrollY || window.pageYOffset;
+      if (scrollY > introTop - 50) {
+        topBtn.classList.remove("hidden");
+      } else {
+        topBtn.classList.add("hidden");
+      }
     });
   }
+
 
   // FV画像アニメーション
   setTimeout(() => {

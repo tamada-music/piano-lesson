@@ -47,10 +47,11 @@
     <div class="header__inner md-none">
       <nav class="header__nav">
           <ul class="header__items">
-              <li class="header__item"><a href="#news" class="header__link">お知らせ</a></li>
               <li class="header__item"><a href="#introduction" class="header__link">講師紹介</a></li>
               <li class="header__item"><a href="#lesson" class="header__link">レッスン内容</a></li>
               <li class="header__item"><a href="#voice" class="header__link">生徒さんの声</a></li>
+              <li class="header__item"><a href="#news" class="header__link">ブログ</a></li>
+
               <li class="header__item"><a href="#contact" class="header__link header__link--contact">お問い合わせ</a></li>
           </ul>
       </nav> 
@@ -65,9 +66,6 @@
       <div class="drawer-menu__inner">
         <ul class="drawer-menu__items">
           <li class="drawer-menu__item">
-            <a href="#news" class="drawer-menu__link">お知らせ</a>
-          </li>
-          <li class="drawer-menu__item">
             <a href="#introduction" class="drawer-menu__link">講師紹介</a>
           </li>
           <li class="drawer-menu__item">
@@ -75,6 +73,9 @@
           </li>
           <li class="drawer-menu__item">
             <a href="#voice" class="drawer-menu__link">生徒さんの声</a>
+          </li>
+          <li class="drawer-menu__item">
+            <a href="#news" class="drawer-menu__link">最新ブログ</a>
           </li>
           <li class="drawer-menu__item">
             <a href="#contact" class="drawer-menu__link drawer-menu__link--contact">Contact</a>
@@ -122,55 +123,7 @@
       </div>
     </section>
 
-    <section class="news" id="news">
-      <img class="news__tree-left-img" src="images/tree-left.png" alt="木の枝のイメージ" width="422" height="186">
-      <img class="news__tree-right-img" src="images/tree-right.png" alt="気の枝のイメージ" width="422" height="186">
-      <div class="news__innner">
-        <h2 class="section-title">お知らせ</h2>
-        <div class="news__board">
-          <ul  id="ameblo-feed" class="news__items text">
-            <!-- <li>
-              <dl class="news__item">
-                <dt class="news__item-title">レッスン可能時間</dt>
-                <dd class="news__item-main">〇曜日〇時～</dd>
-              </dl>
-              <dl class="news__item">
-                <dt class="news__item-title">〇月〇日</dt>
-                <dd class="news__item-main">お知らせの内容お知らせの内容お知らせの内容お知らせの内容お知らせの内容お知ら
-                  せの内容お知らせの内容お知らせの内容お知らせの内容お知らせの内容</dd>
-              </dl>
-              <dl class="news__item">
-                <dt class="news__item-title">〇月〇日</dt>
-                <dd class="news__item-main">お知らせの内容お知らせの内容お知らせの内容お知らせの</dd>
-              </dl>
-              <dl class="news__item">
-                <dt class="news__item-title">〇月〇日</dt>
-                <dd class="news__item-main">お知らせの内容お知らせの内容お知らせの内容お知らせの内容お知らせの内容お知ら
-                  せの内容お知</dd>
-              </dl>
-            </li> -->
-          </ul>
-        </div>
-        <script>
-          fetch('https://rss2json.com/api.json?rss_url=https://ameblo.jp/animprin0ma0/rss20.xml')
-            .then(response => response.json())
-            .then(data => {
-              const container = document.getElementById('ameblo-feed');
-              const items = data.items.slice(0, 5); // 最新3件を取得
-              items.forEach(item => {
-                const li = document.createElement('li');
-                li.innerHTML = `
-                  <dl class="news__item">
-                    <dt class="news__item-title">${new Date(item.pubDate).toLocaleDateString()}</dt>
-                    <dd class="news__item-main"><a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.title}</a></dd>
-                  </dl>
-                `;
-                container.appendChild(li);
-              });
-            });
-        </script>
-      </div>
-    </section>
+
     <section class="introduction" id="introduction">
       <div class="introduction__inner">
         <h2 class="section-title">講師紹介</h2>
@@ -346,7 +299,7 @@
         </div>
     </section><!--about-lesson-->
     <section class="blog" id="voice">
-              <h2 class="news__board--title">生徒さんの声＆ブログ</h2>
+              <h2 class="news__board--title">生徒さんの声</h2>
       <div class="text">
         <div class="blog__accordion accordion js-accordion">
           <div class="blog__accordion-container">
@@ -386,16 +339,6 @@
             </div>
           </div>
         </div>
-        <div class="blog__link">
-          <div>
-            <h3 class="button"><a href="https://ameblo.jp/animprin0ma0/theme-10115006859.html" class="button">過去のブログ‼</a></h3>
-            <p>↑2020年から2025年4月のブログはこちら！</p>
-          </div>
-          <div>
-            <h3 class="button"><a href="https://ameblo.jp/animprin0ma0/theme-10115006859.html" class="button">現在のブログ‼</a></h3>
-            <p>↑最新ブログはこちらから！</p>
-          </div>
-        </div>
       </div>
     </section><!--blog-->
     <div class="swiper">
@@ -432,7 +375,62 @@
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
     </div>
+    <section class="news" id="news">
+      <img class="news__tree-left-img" src="images/tree-left.png" alt="木の枝のイメージ" width="422" height="186">
+      <img class="news__tree-right-img" src="images/tree-right.png" alt="気の枝のイメージ" width="422" height="186">
+      <div class="news__innner">
+        <h2 class="section-title">最新ブログ</h2>
+        <div class="news__board">
+          <ul  id="ameblo-feed" class="news__items text">
+            <!-- <li>
+              <dl class="news__item">
+                <dt class="news__item-title">レッスン可能時間</dt>
+                <dd class="news__item-main">〇曜日〇時～</dd>
+              </dl>
+              <dl class="news__item">
+                <dt class="news__item-title">〇月〇日</dt>
+                <dd class="news__item-main">お知らせの内容お知らせの内容お知らせの内容お知らせの内容お知らせの内容お知ら
+                  せの内容お知らせの内容お知らせの内容お知らせの内容お知らせの内容</dd>
+              </dl>
+              <dl class="news__item">
+                <dt class="news__item-title">〇月〇日</dt>
+                <dd class="news__item-main">お知らせの内容お知らせの内容お知らせの内容お知らせの</dd>
+              </dl>
+              <dl class="news__item">
+                <dt class="news__item-title">〇月〇日</dt>
+                <dd class="news__item-main">お知らせの内容お知らせの内容お知らせの内容お知らせの内容お知らせの内容お知ら
+                  せの内容お知</dd>
+              </dl>
+            </li> -->
+          </ul>
+        </div>
+        <script>
+          fetch('https://rss2json.com/api.json?rss_url=https://ameblo.jp/animprin0ma0/rss20.xml')
+            .then(response => response.json())
+            .then(data => {
+              const container = document.getElementById('ameblo-feed');
+              const items = data.items.slice(0, 5); // 最新3件を取得
+              items.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                  <dl class="news__item">
+                    <dt class="news__item-title">${new Date(item.pubDate).toLocaleDateString()}</dt>
+                    <dd class="news__item-main"><a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.title}</a></dd>
+                  </dl>
+                `;
+                container.appendChild(li);
+              });
+            });
+        </script>
+      </div>
+      <div class="blog__link">
+        <div>
+          <h3 class="button"><a href="https://ameblo.jp/animprin0ma0/theme-10115006859.html" class="button">過去のブログ</a></h3>
+          <p>↑2020年から2025年4月のブログ</p>
+        </div>
+      </div>
 
+    </section>
     <section class="contact" id="contact">
       <div class="text">
         <div class="contact-form">
@@ -474,7 +472,7 @@
           </div>
         </div>
       </div>
-      <a href="#fv"><img class="for-top-btn" src="images/Top-btn.png" alt="トップへ戻るボタン"></a>
+      <a href="#fv"><img class="for-top-btn hidden" src="images/Top-btn.png" alt="トップへ戻るボタン"></a>
     </section><!--blog-->
   </main>
   <footer class="footer"></footer>
