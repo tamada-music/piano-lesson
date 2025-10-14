@@ -765,7 +765,7 @@ main{
     opacity: 0.8;
     }
 }
-//講師紹介ーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+//教室紹介ーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 .introduction {
     background-color: $gray;
     padding: 170px 15px 0; // 必要に応じて余白を追加
@@ -790,6 +790,7 @@ main{
     padding-top: 44px;
     display: flex;
     gap: 20px;
+    justify-content: space-between;
     @include mq("md") {
         display: block;
     }
@@ -814,6 +815,11 @@ main{
         display: block;
     }
 }
+.introduction__name {
+    font-weight: 500;
+    display: block;
+    text-align: right;
+}
 .introduction__img {
     max-width: 38%;
     display: flex;
@@ -832,21 +838,114 @@ main{
 }
 .introduction__top--detail th {
     vertical-align: top;
+    padding-top: 20px;
+    @include mq("md") {
+        padding-top: 0;
+    }
 }
 .introduction__top--detail tr {
     padding-top: 30px;
-
     @include mq("md") {
         display: flex;
         flex-direction: column;
+        padding-top: 12px;
     }
 }
 .introduction__top--detail tr th {
-    width: 5rem;
+    width: 8rem;
     margin-top: 10px;
     @include mq("md") {
         width: 100%;
     }
+}
+.introduction__top--detail-td {
+    font-size: 16px;
+    padding-top: 20px;
+    @include mq("md") {
+        padding-top: 0;
+    }
+}
+.introduction__accordion {
+    width: 100%;
+  //  max-width: 800px;
+   // margin: auto;
+    @include mq("md") {
+        padding-top: 40px;
+    }
+}
+.accordion__content {
+    text-align: left;
+}
+.accordion {
+    width: 100%;
+}
+.introduction__accordion-title {
+    position: relative;
+    cursor: pointer;
+    align-items: center;
+    background-color: $orange;
+    margin-bottom: 20px; /* 必要な隙間の値を設定 */
+    border-radius: 10px;
+    margin: 0 20px 0;
+    @include mq("md") {
+        padding: 10px 35px 10px 10px;
+    }
+}
+
+.introduction__accordion-title--text {
+    font-size: 21px;
+    color: $brown;
+    font-weight: bold;
+    padding-left: 1em;
+    letter-spacing: 0.05em;
+    @include mq("md") {
+            font-size: 14px;
+            line-height: 1.857;
+        }
+}
+.introduction__accordion-text {
+    font-size: 15px;
+    line-height: 1.867;
+    padding-left: 2em;
+    text-indent: -1rem;
+    @include mq("md") {
+        font-size: 14px;
+        line-height: 1.857;
+    }
+}
+
+.blog__link {
+    display: flex;
+    justify-content: space-evenly;
+}
+.accordion__content:first-of-type {
+    display: block;
+    max-height: none;
+}
+//開閉のためのパーツ
+.introduction__accordion-title::before,
+.introduction__accordion-title::after {
+    position: absolute;
+    top: 50%;
+    right: 35px;
+    width: 18px;
+    height: 2px;
+    content: "";
+    background-color: $brown;
+    transition: 0.3s transform, 0.3s opacity;
+    @include mq("md") {
+        right: 12px;
+        width: 16px;
+    }
+}
+.introduction__accordion-title::before{
+    transform: rotate(90deg);
+}
+.introduction__accordion-title.is-open::before {
+    transform: rotate(180deg);
+}
+.introduction__accordion-title.is-open::after {
+    opacity: 0;
 }
 
 
@@ -927,7 +1026,7 @@ main{
     color: $brown;
     text-align: center; // 必要に応じて削除
     padding-top: 50px;
-    background-image: url(/images/orange-back.png);
+    background-image: url(../images/orange-back.png);
     background-color: $orange;
     @include mq("md") {
         padding-top: 100px;
@@ -981,9 +1080,12 @@ margin-left: auto;
     margin: 0;
     text-align: left; /* 中央寄せを防ぐ */
     margin-top: 2rem;
-
     list-style-position: outside; /* ビュレットをリストの外側に */
-    padding-left: 1.5em; /* ビュレットの分のスペースを確保 */
+    padding-left: 1.5em;
+    @include mq("md") {
+        padding-left: 0;
+    
+    }
 }
 
 .rules__item {
@@ -1151,7 +1253,7 @@ line-height: 1.5;
     margin-right: auto;
     margin-left: auto;
     @include mq("lg") {
-        padding: 40px 40px 20px;
+        padding: 40px 30px 20px;
     }
 }
 
@@ -1205,15 +1307,13 @@ line-height: 1.5;
     @include mq("md") {
             font-size: 14px;
             line-height: 1.857;
-
         }
-
 }
 .accordion__content {
     display: none;
     padding: 21px 20px;
     @include mq("md") {
-        padding: 16px 60px 24px;
+        padding: 16px 20px 24px;
     }
 }
 .accordion-text {
@@ -1354,7 +1454,7 @@ line-height: 1.5;
     z-index: 500;
 }
 .text {
-    font-size: 18px;
+    font-size: 17px;
     @include mq("lg") {
         font-size: 16px;
     }
@@ -1422,18 +1522,57 @@ line-height: 1.5;
         padding-top: 0;
     }
 }
+// 
+
 .for-top-btn {
-    width: 280px;
-    aspect-ratio: 1/1;
     position: fixed;
-    bottom: 20px;
-    right: -20px;
-    z-index: 2000;
-    @include mq("lg") {
-        bottom: 15px;
-        right: -30px;
-    }
-}
+    left: -40px;
+    bottom: 0px;
+    z-index: 20000;
+  
+    width: 200px;       // ボタンの見た目サイズ
+    aspect-ratio: 1/1;
+    display: block;
+    cursor: pointer;
+    transition: transform .15s ease, opacity .15s ease;
+  
+    /* 背景に実画像を表示（そのままの色） */
+    background: url('../images/Top-btn.png') center/contain no-repeat;
+  
+    /* ★ 画像のアルファ（透明・不透明）で当たり判定も切り抜く */
+    -webkit-mask-image: url('../images/Top-btn.png'); /* Safari/iOS */
+    mask-image: url('../images/Top-btn.png');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+  }
+
+
+// .for-top-btn-wrap {
+//     width: 80px;
+//     aspect-ratio: 1 / 1;
+//     display: block;
+//     /* 画像は背景にする（img要素は使わない） */
+//     background: url("images/Top-btn.png") center/cover no-repeat;
+//     /* ★ 当たり判定ごと丸くする */
+//     -webkit-clip-path: circle(50% at 50% 50%); /* iOS対策 */
+//     clip-path: circle(50% at 50% 50%);
+// }
+// .for-top-btn {
+//    // width: 280px;
+//    // aspect-ratio: 1/1;
+//     position: fixed;
+//     bottom: 20px;
+//     right: -20px;
+//     z-index: 2000;
+//     @include mq("lg") {
+//         bottom: 15px;
+//         right: -30px;
+//     }
+//}
 .for-top-btn.hidden {
     display: none;
 }

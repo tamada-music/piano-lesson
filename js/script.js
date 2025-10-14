@@ -52,10 +52,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // Swiperの初期化
   const swiperInstance = new Swiper(".swiper", {
     loop: true,
-    autoplay: { delay: 3000, disableOnInteraction: false },
-    speed: 1500,
-    spaceBetween: 10,
-    slidesPerView: 1,
+    allowTouchMove: false, 
+    autoplay: { 
+      delay: 0, 
+      disableOnInteraction: false },
+      speed: 1500,
+      spaceBetween: 10,
+   // slidesPerView: 1,
 
     pagination: {
       el: ".swiper-pagination",

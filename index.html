@@ -2,7 +2,6 @@
 <html lang="ja">
 
 <head>
-  <meta name="robots" content="noindex,nofollow">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <meta name="format-detection" content="telephone=no">
@@ -29,7 +28,15 @@
 
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <!--Googleアナリティクスタグ-->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-45FXWRST10"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-45FXWRST10');
+  </script>
   <!-- css -->
   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
   <!-- <link rel="stylesheet" href="css/style.css"> -->
@@ -47,14 +54,14 @@
     <div class="header__inner md-none">
       <nav class="header__nav">
           <ul class="header__items">
-              <li class="header__item"><a href="#introduction" class="header__link">講師紹介</a></li>
+              <li class="header__item"><a href="#introduction" class="header__link">教室紹介</a></li>
               <li class="header__item"><a href="#lesson" class="header__link">レッスン内容</a></li>
               <li class="header__item"><a href="#voice" class="header__link">生徒さんの声</a></li>
               <li class="header__item"><a href="#news" class="header__link">ブログ</a></li>
 
               <li class="header__item"><a href="#contact" class="header__link header__link--contact">お問い合わせ</a></li>
           </ul>
-      </nav> 
+      </nav>
     </div> <!-- //header__inner -->
 
     <div class="hamburger js-hamburger md-show"><!-- ハンバーガー -->
@@ -66,7 +73,7 @@
       <div class="drawer-menu__inner">
         <ul class="drawer-menu__items">
           <li class="drawer-menu__item">
-            <a href="#introduction" class="drawer-menu__link">講師紹介</a>
+            <a href="#introduction" class="drawer-menu__link">教室紹介</a>
           </li>
           <li class="drawer-menu__item">
             <a href="#lesson" class="drawer-menu__link">レッスン内容</a>
@@ -126,55 +133,100 @@
 
     <section class="introduction" id="introduction">
       <div class="introduction__inner">
-        <h2 class="section-title">講師紹介</h2>
+        <h2 class="section-title">教室紹介</h2>
         <div class="introduction__top">
           <table class="introduction__top--detail text">
             <tr>
-              <th>講師</th>
-              <td>市川 美奈（いちかわ みな）</td>
+              <th>所在地</th>
+              <td class="introduction__top--detail-td">松本市蟻ケ崎</td>
             </tr>
             <tr>
-              <th>おもい</th>
-              <td>年中から音楽教室で学び、習っていた先生に憧れ、音楽教室の講師を目指しました。<br>
-                ピアノ・エレクトーンソロ演奏の他、アンサンブルの楽しさも日々生徒さん達と共有して、
-                ピアノ連弾や生徒さんの横のつながりも大切に、音楽の輪を広げていきたいと思っています。<br>
-                吹奏楽でフルートを吹いていたので、子育てが落ち着いたらフルートも吹きたいと思っています。<br>
-                教室の子供達に将来『いつも近くに音楽がいてくれた・習ってきて良かった』<br class="md-show">と思ってもらえるよう、
-                また、大人の方にも<br class="md-show">『やっぱり楽器が弾けるって楽しい』<br class="md-show">と思ってもらえるレッスンを目指しています。<br>
-                それぞれの年齢、目標に寄り添いながら一緒に成長していけたら嬉しいです。</td>
+              <th>レッスン日</th>
+              <td class="introduction__top--detail-td">お子様（未就学～高校生）<br class="md-show">月・火・木曜日<br>大人のレッスンは女性限定<br class="md-show">火・木曜日（木曜日要相談）</td>
             </tr>
-
+            <tr>
+              <th>使用楽器</th>
+              <td class="introduction__top--detail-td">ヤマハグランドピアノ1台<br class="md-show">
+                アップライト1台<br>
+                エレクトーンELS-02
+              </td>
+            </tr>
+            <tr>
+              <th>駐車場</th>
+              <td  class="introduction__top--detail-td">教室の隣に1台 近隣にコインパーキングあり(30分100円)</td>
+            </tr>
+            <tr>
+              <th>最寄り駅</th>
+              <td class="introduction__top--detail-td">松本駅（車で10分）<br class="md-show">松本深志高校グラウンド近く</td>
+            </tr>
           </table>
-          <div class="introduction__img">
-            <img src="images/intro.png" alt="講師が生徒にピアノを教えている様子">
-          </div>
+        <div class="introduction__img">
+          <img src="images/intro.png" alt="講師が生徒にピアノを教えている様子">
         </div>
+        </div>
+      </div>
+      <div class="introduction__inner introduction__inner--bottom">
         <table class="introduction__top--detail text">
           <tr>
-            <th>所在地</th>
-            <td>松本市蟻ケ崎</td>
-          </tr>
-          <tr>
-            <th>レッスン日</th>
-            <td>お子様（未就学～高校生）<br class="md-show">月・火・木曜日<br>大人のレッスンは女性限定<br class="md-show">火・木曜日（木曜日要相談）</td>
-          </tr>
-          <tr>
-            <th>使用楽器</th>
-            <td>ヤマハグランドピアノ1台<br class="md-show">
-              アップライト1台<br>
-              エレクトーンELS-02
+            <th>教室の様子</th>
+            <td>
+              <div class="introduction__accordion accordion js-accordion">
+                <div class="blog__accordion-container">
+                  <div class="blog__accordion-item js-accordion__item">
+                    <div class="introduction__accordion-title js-accordion__title is-open">
+                      <p class="introduction__accordion-title--text js-accordion__title--text is-open">	&#119070;&nbsp;どんな人が通っていますか&#63;</p>
+                    </div>
+                    <div class="accordion__content js-accordion__content">
+                      <p class="introduction__accordion-text">A.現在、園児さんから大人の方までレッスンに通ってきてくださっています。高校生は学校帰り、社会人は仕事帰りに、主婦の方は平日の昼間に♪といった方がいらっしゃいます。
+                        多くの方がピアノをお持ちで習われていますが、エレクトーンも教えているので、バンドのキーボードなどでコードが必要な方も一緒に勉強出来ます。小さなお子様でグループレッスンで歌やダンスを楽しみたい方は『ヤマハのグループレッスン』もご紹介できます。
+                        （現在通ってくださっている地域：松本市内、山形村、安曇野市、塩尻市）</p>
+                    </div>
+                  </div>
+                  <div class="blog__accordion-item js-accordion__item">
+                    <div class="introduction__accordion-title js-accordion__title">
+                      <p class="introduction__accordion-title--text js-accordion__title--text">	&#119070;&nbsp;レッスン形態は&#63;</p>
+                    </div>
+                    <div class="accordion__content js-accordion__content">
+                      <p class="introduction__accordion-text">A.基本的には固定曜日と時間で通っていただいています。
+                        月の回数、年間回数の決まりはありません。
+                        昨今、子供も大人も色々と忙しく、毎週毎週のレッスンが難しい方や、発表会やコンクール前には追い込みでたくさんレッスンに通いたい方など様々な状況があります。
+                        いちかわピアノ教室は【レッスンに通った分だけ】のレッスン料とさせていただいております。
+                        （表参照）
+                        相談しながら毎月のレッスン計画を立てています。月末にレッスン料金が決まります。</p>
+                    </div>
+                  </div>
+                  <div class="blog__accordion-item js-accordion__item">
+                    <div class="introduction__accordion-title js-accordion__title">
+                      <p class="introduction__accordion-title--text js-accordion__title--text">	&#119070;&nbsp;レッスン時間は&#63;</p>
+                    </div>
+                    <div class="accordion__content js-accordion__content">
+                      <p class="introduction__accordion-text">A.30分と60分の選択制です。（60分お取りできない場合もあります）
+                        たくさんの方に習っていただきたいですが、レッスン前後にもコミュニケーションを取れる時間を確保しており、ゆったりとした時間の組み方をしているため、1日にレッスン出来る人数は少人数です。
+                        レッスン時間は30分が基本ですが、希望者は60分レッスンができるようにしております。（要相談）
+                        そのため、人数的には松本市で1番小さなピアノ教室かもしれません（笑）</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </td>
           </tr>
           <tr>
-            <th>駐車場</th>
-            <td>教室の隣に1台 近隣にコインパーキングあり(30分100円)</td>
-          </tr>
-          <tr>
-            <th>最寄り駅</th>
-            <td>松本駅（車で10分）<br class="md-show">松本深志高校グラウンド近く</td>
+            <th>講師のおもい</th>
+            <td class="introduction__top--detail-td">年中から音楽教室で学び、習っていた先生に憧れ、音楽教室の講師を目指しました。<br>
+              吹奏楽でフルートを吹いていたので、子育てが落ち着いたらフルートも吹きたいと思っています。<br><br>
+              私がそうであったように、教室に通ってくれている生徒さんには『いつも近くに音楽がいてくれた・習ってきて良かった』大人の生徒さんにも『やっぱり楽器が弾けるって楽しい』
+              と思ってもらえるようなレッスンを目指しています。
+              ソロ演奏の他、アンサンブルの楽しさも日々生徒さん達と共有して、生徒さんの横のつながりも大切にしながら、音楽の輪が広がる教室です。<br><br>
+              小さなお子様には沢山の『出来た！』の経験を通して、ステージ演奏の楽しさも感じてほしいです。<br>
+              イベントにご興味がある方は一緒に色々な経験を積み上げていきましょう。
+              また、子供たちはご挨拶、レッスンのマナーやステージマナーも一緒に学ぶことも出来る教室です。
+              是非、お気軽にお問い合わせください。<br>
+              <span class="introduction__name">講師 市川美奈</span>
+            </td>
           </tr>
         </table>
       </div>
+
     </section>
     <div class="separator">
       <img src="images/kenban.png" alt="鍵盤の画像">
@@ -472,7 +524,9 @@
           </div>
         </div>
       </div>
-      <a href="#fv"><img class="for-top-btn hidden" src="images/Top-btn.png" alt="トップへ戻るボタン"></a>
+      <a href="#fv" class="for-top-btn hidden" aria-label="ページ上部へ"></a>
+
+      <!-- <a  class="for-top-btn-wrap" href="#fv"><img class="for-top-btn hidden" src="images/Top-btn.png" alt="トップへ戻るボタン"></a> -->
     </section><!--blog-->
   </main>
   <footer class="footer"></footer>
