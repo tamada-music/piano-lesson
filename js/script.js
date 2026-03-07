@@ -24,30 +24,64 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // アコーディオン
-  const accordionTitles = document.querySelectorAll(".js-accordion__title");
-  if (accordionTitles.length > 0) {
-    const firstAccordionTitle = accordionTitles[0];
-    const firstAccordionContent = firstAccordionTitle.nextElementSibling;
 
-    if (firstAccordionContent) {
-      firstAccordionTitle.classList.add("is-open");
-      firstAccordionContent.style.display = "block";
-      firstAccordionContent.style.maxHeight = firstAccordionContent.scrollHeight + "px";
+
+// アコーディオン
+const accordions = document.querySelectorAll(".js-accordion");
+accordions.forEach((acc) => {
+  // そのアコーディオン内の1つ目を初期オープン（js-accordion--initially-closedの場合はスキップ）
+  if (!acc.classList.contains("js-accordion--initially-closed")) {
+    const firstTitle = acc.querySelector(".js-accordion__title");
+    const firstContent = firstTitle && firstTitle.nextElementSibling;
+    if (firstTitle && firstContent) {
+      firstTitle.classList.add("is-open");
+      firstContent.style.display = "block";
+      firstContent.style.maxHeight = firstContent.scrollHeight + "px";
     }
-
-    accordionTitles.forEach((title) => {
-      title.addEventListener("click", function () {
-        this.classList.toggle("is-open");
-        const content = this.nextElementSibling;
-        if (content) {
-          const isOpen = content.style.display === "block";
-          content.style.display = isOpen ? "none" : "block";
-          content.style.maxHeight = isOpen ? null : content.scrollHeight + "px";
-        }
-      });
-    });
   }
+
+  // そのアコーディオン内のタイトルにだけクリック設定
+  acc.querySelectorAll(".js-accordion__title").forEach((title) => {
+    title.addEventListener("click", function () {
+      this.classList.toggle("is-open");
+      const content = this.nextElementSibling;
+      if (content) {
+        const isOpen = content.style.display === "block";
+        content.style.display = isOpen ? "none" : "block";
+        content.style.maxHeight = isOpen ? null : content.scrollHeight + "px";
+      }
+    });
+  });
+});
+
+
+
+
+
+  // // アコーディオン
+  // const accordionTitles = document.querySelectorAll(".js-accordion__title");
+  // if (accordionTitles.length > 0) {
+  //   const firstAccordionTitle = accordionTitles[0];
+  //   const firstAccordionContent = firstAccordionTitle.nextElementSibling;
+
+  //   if (firstAccordionContent) {
+  //     firstAccordionTitle.classList.add("is-open");
+  //     firstAccordionContent.style.display = "block";
+  //     firstAccordionContent.style.maxHeight = firstAccordionContent.scrollHeight + "px";
+  //   }
+
+  //   accordionTitles.forEach((title) => {
+  //     title.addEventListener("click", function () {
+  //       this.classList.toggle("is-open");
+  //       const content = this.nextElementSibling;
+  //       if (content) {
+  //         const isOpen = content.style.display === "block";
+  //         content.style.display = isOpen ? "none" : "block";
+  //         content.style.maxHeight = isOpen ? null : content.scrollHeight + "px";
+  //       }
+  //     });
+  //   });
+  // }
 
   // Swiperの初期化
   const swiperInstance = new Swiper(".swiper", {

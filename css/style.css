@@ -296,7 +296,6 @@ select::-ms-expand {
 .header__link--contact {
   padding: 7px 15px;
   border-radius: 15px;
-  margin-left: 40px;
   color: #8F712A;
   background-color: #F3EBC2;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -914,6 +913,11 @@ select::-ms-expand {
   left: 0;
   bottom: 0;
 }
+@media screen and (max-width: 1024px) {
+  .news__tree-left-img {
+    max-width: 300px;
+  }
+}
 @media screen and (max-width: 768px) {
   .news__tree-left-img {
     max-width: 45%;
@@ -926,6 +930,11 @@ select::-ms-expand {
   position: absolute;
   top: 130px;
   right: 0;
+}
+@media screen and (max-width: 1024px) {
+  .news__tree-right-img {
+    max-width: 300px;
+  }
 }
 @media screen and (max-width: 768px) {
   .news__tree-right-img {
@@ -1458,7 +1467,7 @@ select::-ms-expand {
   max-width: 800px;
   margin: 0 auto;
   color: #8F712A;
-  display: flex;
+  display: grid;
   justify-content: space-around;
 }
 @media screen and (max-width: 768px) {
@@ -1480,6 +1489,7 @@ select::-ms-expand {
     font-size: 0.85rem;
   }
   .lesson-details__list {
+    margin-top: 2rem;
     max-width: calc(100% - 8rem);
   }
 }
@@ -1553,7 +1563,7 @@ select::-ms-expand {
   background-color: #87997A;
   margin-bottom: 20px; /* 必要な隙間の値を設定 */
   border-radius: 10px;
-  margin: 0 20px 30px;
+  margin: 0 20px 0;
 }
 @media screen and (max-width: 768px) {
   .blog__accordion-title {
@@ -1643,7 +1653,7 @@ select::-ms-expand {
 
 .accordion__content {
   display: none;
-  padding: 21px 20px;
+  padding: 20px 60px;
 }
 @media screen and (max-width: 768px) {
   .accordion__content {
@@ -1673,6 +1683,34 @@ select::-ms-expand {
   .blog__accordion-item:not(:first-child) {
     margin-top: 8px;
   }
+}
+
+/* レッスン回数と料金のトグルのみ専用スタイル */
+.blog__accordion--lesson-price .blog__accordion-title {
+  background-color: #f7f3eb;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: background-color 0.3s ease;
+}
+.blog__accordion--lesson-price .blog__accordion-title:hover {
+  background-color: #b8a067;
+}
+.blog__accordion--lesson-price .blog__accordion-title--text {
+  color: #8F712A;
+  transition: color 0.3s ease;
+}
+.blog__accordion--lesson-price .blog__accordion-title:hover .blog__accordion-title--text {
+  color: #f7f3eb;
+}
+.blog__accordion--lesson-price .blog__accordion-title::before,
+.blog__accordion--lesson-price .blog__accordion-title::after {
+  background-color: #8F712A;
+ /* transition: background-color 0.3s ease; */
+}
+.blog__accordion--lesson-price .blog__accordion-title:hover::before,
+.blog__accordion--lesson-price .blog__accordion-title:hover::after {
+  background-color: #f7f3eb;
 }
 
 .news__board--title {
@@ -1775,6 +1813,16 @@ select::-ms-expand {
 .contact-form__textarea {
   height: 120px;
   resize: vertical;
+}
+/* footer */
+.footer {
+  text-align: center;
+  color: #8F712A;
+  padding: 10px 0;
+}
+.footer__copyright {
+  font-size: 14px;
+  color: #8F712A;
 }
 
 /* 送信ボタン */
@@ -1891,7 +1939,7 @@ select::-ms-expand {
   left: -40px;
   bottom: 0px;
   z-index: 20000;
-  width: 200px;
+  width: 280px;
   aspect-ratio: 1/1;
   display: block;
   cursor: pointer;
@@ -1907,6 +1955,11 @@ select::-ms-expand {
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
   mask-position: center;
+}
+@media screen and (max-width: 375px) {
+  .for-top-btn {
+    width: 200px;
+  }
 }
 
 .for-top-btn.hidden {
@@ -1973,3 +2026,7 @@ select::-ms-expand {
     display: block;
   }
 }/*# sourceMappingURL=style.css.map */
+
+.mt-40 {
+  margin-top: 40px;
+}
