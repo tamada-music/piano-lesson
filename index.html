@@ -6,18 +6,16 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <meta name="format-detection" content="telephone=no">
   <!-- meta情報 -->
-  <title>いちかわピアノ教室</title>
-  <link rel="canonical" href="https://ichikawa-piano-lesson.github.io/">
-  <meta name="description" content="大人も子供も楽しめるピアノ教室">
+  <title>玉田音楽教室</title>
+  <meta name="description" content="長野県辰野町のピアノ教室">
   <meta name="keywords" content="">
-  <meta name="google-site-verification" content="r-Ra1EXmUX4Mg79IL03EDAgi7h4zq6IQWktoxC1ou9Y" />
   <!-- ogp -->
-  <meta property="og:title" content="いちかわピアノ教室">
+  <meta property="og:title" content="玉田音楽教室">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ichikawa-piano-lesson.github.io/">
-  <meta property="og:image" content="https://ichikawa-piano-lesson.github.io/images/ogp.png">
-  <meta property="og:site_name" content="いちかわピアノ教室">
-  <meta property="og:description" content="大人も子供も楽しめるピアノ教室">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="/images/ogp.png">
+  <meta property="og:site_name" content="玉田音楽教室">
+  <meta property="og:description" content="長野県辰野町のピアノ・エレクトーン教室">
   <meta name="twitter:card" content="summary">
   <meta property="og:locale" content="ja_JP">
   <!-- ファビコン -->
@@ -26,7 +24,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p&family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <!--Googleアナリティクスタグ-->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-45FXWRST10"></script>
@@ -40,13 +38,15 @@
   <!-- css -->
   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
   <!-- <link rel="stylesheet" href="css/style.css"> -->
-  <link rel="stylesheet" href="css/style.css?v=3">
+  <link rel="stylesheet" href="css/style.css?v=5">
 
 
   <!-- JavaScript -->
   <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js" defer></script>
-  <script src="js/script.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+  <script src="js/script.js?v=5" defer></script>
 </head>
 
 <body>
@@ -54,11 +54,10 @@
     <div class="header__inner md-none">
       <nav class="header__nav">
           <ul class="header__items">
-              <li class="header__item"><a href="#introduction" class="header__link">教室紹介</a></li>
-              <li class="header__item"><a href="#lesson" class="header__link">レッスン内容</a></li>
+              <li class="header__item"><a href="#about" class="header__link">教室について</a></li>
+              <li class="header__item"><a href="#teacher" class="header__link">講師紹介</a></li>
+              <li class="header__item"><a href="#concert" class="header__link">コンクール実績</a></li>
               <li class="header__item"><a href="#voice" class="header__link">生徒さんの声</a></li>
-              <li class="header__item"><a href="#news" class="header__link">ブログ</a></li>
-
               <li class="header__item"><a href="#contact" class="header__link header__link--contact">お問い合わせ</a></li>
           </ul>
       </nav>
@@ -73,16 +72,16 @@
       <div class="drawer-menu__inner">
         <ul class="drawer-menu__items">
           <li class="drawer-menu__item">
-            <a href="#introduction" class="drawer-menu__link">教室紹介</a>
+            <a href="#about" class="drawer-menu__link">教室について</a>
           </li>
           <li class="drawer-menu__item">
-            <a href="#lesson" class="drawer-menu__link">レッスン内容</a>
+            <a href="#teacher" class="drawer-menu__link">講師紹介</a>
+          </li>
+          <li class="drawer-menu__item">
+            <a href="#concert" class="drawer-menu__link">コンクール実績</a>
           </li>
           <li class="drawer-menu__item">
             <a href="#voice" class="drawer-menu__link">生徒さんの声</a>
-          </li>
-          <li class="drawer-menu__item">
-            <a href="#news" class="drawer-menu__link">最新ブログ</a>
           </li>
           <li class="drawer-menu__item">
             <a href="#contact" class="drawer-menu__link drawer-menu__link--contact">Contact</a>
@@ -95,413 +94,291 @@
   <main>
     <section class="fv" id="fv">
       <div class="fv-bg">
-        <div class="fv__notes">
-          <span class="fv__note fv__note--1">♪</span>
-          <span class="fv__note fv__note--2">♩</span>
-          <span class="fv__note fv__note--3">♪</span>
-        </div>
-        <div class="fv__inner">
+        <div class="inner fv__inner">
           <h1 class="fv__title">
-            <span class="fv__title fv__title--slim">一緒に</span><br>
-            <span class="fv__title fv__title--slim">頑張る</span>
-            <span class="fv__title fv__title--slim">楽しむ</span>
-            <span class="fv__title fv__title--slim">続ける</span><br><br class="md-show">
-            <span class="font-lora">Ichikawa Piano <br class="md-show">& <br class="md-show">Electone School</span>
+           
+            <span class="fv__title-text fv__title-text--slim">サブタイトル導入予定</span><br><br class="md-show">
+            <span class="font-lora">玉田音楽教室</span>
           </h1>
-          <div class="fv__img--green">
-            <img src="images/fv-happa.png" alt="木の枝のイラスト">
-          </div>
-          <div class="fv__img--piano-img">
-            <img src="images/fv-pianozu.png" alt="グランドピアノと椅子のイラスト">
-            <div class="fv__img--note">
-              <img  src="images/fv-note.png" alt="音符が流れている画像">
-            </div>
-          </div>
-          <div  class="fv__img--lesson md-none">
-            <img src="images/fv-lesspn.png" alt="レッスンと書いた看板" width="590">
-          </div>
-          <div class="fv__img--door md-none">
-            <img src="images/fv-door.png" alt="ピアノ教室の黒いドア" width="882">
-          </div>
-          <div class="fv__img--up-piano lg-none">
-            <img src="images/fv-piano.png" alt="教室のアップライトピアノ" width="590">
-          </div>
         </div>
       </div>
     </section>
 
 
-    <section class="introduction" id="introduction">
-      <div class="introduction__inner">
-        <h2 class="section-title">教室紹介</h2>
+    <section class="introduction" id="about">
+      <div class="inner introduction__inner">
+        <h2 class="section-title">教室について</h2>
         <div class="introduction__top">
           <table class="introduction__top--detail text">
             <tr>
               <th>所在地</th>
-              <td class="introduction__top--detail-td">松本市蟻ケ崎</td>
-            </tr>
-            <tr>
-              <th>レッスン日</th>
-              <td class="introduction__top--detail-td">お子様（未就学～高校生）<br class="md-show">月・火・木曜日<br>大人のレッスンは女性限定</td>
+              <td class="introduction__top--detail-td">上伊那郡辰野町宮木仲町</td>
             </tr>
             <tr>
               <th>使用楽器</th>
-              <td class="introduction__top--detail-td">ヤマハグランドピアノ1台<br class="md-show">
-                アップライト1台<br>
-                エレクトーンELS-02
-              </td>
+              <td class="introduction__top--detail-td">ヤマハグランドピアノ２台</td>
             </tr>
             <tr>
               <th>駐車場</th>
-              <td  class="introduction__top--detail-td">1台有り<br>近隣にコインパーキングあり(30分100円)</td>
+              <td  class="introduction__top--detail-td">有り</td>
             </tr>
             <tr>
               <th>最寄り</th>
-              <td class="introduction__top--detail-td">松本駅（車で10分）<br class="md-show">松本深志高校グラウンド近く</td>
+              <td class="introduction__top--detail-td">宮木駅<br class="md-show">辰野高校近く　辰野西小学校より徒歩5分</td>
             </tr>
           </table>
         <div class="introduction__img">
-          <img src="images/intro.png" alt="講師が生徒にピアノを教えている様子" width="600" height="400">
+          <img src="images/S__6217738.jpg" alt="教室の様子" width="600" height="400">
         </div>
         </div>
       </div>
-      <div class="introduction__inner introduction__inner--bottom">
-        <table class="introduction__top--detail text">
-          <tr>
-            <th>教室の様子</th>
-            <td>
-              <div class="introduction__accordion accordion js-accordion">
-                <div class="blog__accordion-container">
-                  <div class="blog__accordion-item js-accordion__item is-open">
-                    <div class="introduction__accordion-title js-accordion__title">
-                      <p class="introduction__accordion-title--text js-accordion__title--text">	&#119070;&nbsp;どんな人が通っていますか&#63;</p>
-                    </div>
-                    <div class="accordion__content js-accordion__content">
-                      <p class="introduction__accordion-text">A.現在、園児さんから大人の方までレッスンに通ってきてくださっています。高校生は学校帰り、社会人は仕事帰りに、主婦の方は平日の昼間に♪といった方がいらっしゃいます。
-                        多くの方がピアノをお持ちで習われていますが、エレクトーンも教えているので、バンドのキーボードなどでコードが必要な方も一緒に勉強出来ます。小さなお子様でグループレッスンで歌やダンスを楽しみたい方は『ヤマハのグループレッスン』もご紹介できます。
-                        （現在通ってくださっている地域：松本市内、山形村、安曇野市、塩尻市）</p>
-                    </div>
-                  </div>
-                  <div class="blog__accordion-item js-accordion__item">
-                    <div class="introduction__accordion-title js-accordion__title">
-                      <p class="introduction__accordion-title--text js-accordion__title--text">	&#119070;&nbsp;レッスン形態は&#63;</p>
-                    </div>
-                    <div class="accordion__content js-accordion__content">
-                      <p class="introduction__accordion-text">A.基本的には固定曜日と時間で通っていただいています。
-                        月の回数、年間回数の決まりはありません。
-                        昨今、子供も大人も色々と忙しく、毎週毎週のレッスンが難しい方や、発表会やコンクール前には追い込みでたくさんレッスンに通いたい方など様々な状況があります。
-                        いちかわピアノ教室は【レッスンに通った分だけ】のレッスン料とさせていただいております。
-                        （表参照）
-                        相談しながら毎月のレッスン計画を立てています。月末にレッスン料金が決まります。</p>
-                    </div>
-                  </div>
-                  <div class="blog__accordion-item js-accordion__item">
-                    <div class="introduction__accordion-title js-accordion__title">
-                      <p class="introduction__accordion-title--text js-accordion__title--text">	&#119070;&nbsp;レッスン時間は&#63;</p>
-                    </div>
-                    <div class="accordion__content js-accordion__content">
-                      <p class="introduction__accordion-text">A.30分と60分の選択制です。（60分お取りできない場合もあります）
-                        たくさんの方に習っていただきたいですが、レッスン前後にもコミュニケーションを取れる時間を確保しており、ゆったりとした時間の組み方をしているため、1日にレッスン出来る人数は少人数です。
-                        レッスン時間は30分が基本ですが、希望者は60分レッスンができるようにしております。（要相談）
-                        そのため、人数的には松本市で1番小さなピアノ教室かもしれません（笑）</p>
-                    </div>
-                  </div>
+      <div class="inner introduction__inner introduction__inner--bottom">
+        <div class="introduction__top--detail text">
+          <div class="introduction__content">
+            <div class="introduction__content-container">
+              <div class="introduction__content-item">
+                <div class="introduction__content-title">
+                  <p class="introduction__content-title--text">リトミックレッスン　（２～３歳児　親子で行うリトミックレッスン）</p>
+                </div>
+                <div class="introduction__content-content">
+                  <p class="introduction__content-text">今まで２０年以上リトミック講座、ちびっ子リトミックを行ってきた経験を活かしレッスンいたします。<br>
+                    ご希望があれば、より小さいお子様の親子リトミックも行います。身体で音楽を感じ、リズム感を育て、音楽が好きになる心を養うレッスンです。<br>
+                    感受性の豊かな幼児を目指します。
+                  </p>
                 </div>
               </div>
-            </td>
-          </tr>
-          <tr>
-            <th>講師のおもい</th>
-            <td class="introduction__top--detail-td">年中から音楽教室で学び、習っていた先生に憧れ、音楽教室の講師を目指しました。<br>
-              吹奏楽でフルートを吹いていたので、子育てが落ち着いたらフルートも吹きたいと思っています。<br><br>
-              私がそうであったように、教室に通ってくれている生徒さんには『いつも近くに音楽がいてくれた・習ってきて良かった』大人の生徒さんにも『やっぱり楽器が弾けるって楽しい』
-              と思ってもらえるようなレッスンを目指しています。
-              ソロ演奏の他、アンサンブルの楽しさも日々生徒さん達と共有して、生徒さんの横のつながりも大切にしながら、音楽の輪が広がる教室です。<br><br>
-              小さなお子様には沢山の『出来た！』の経験を通して、ステージ演奏の楽しさも感じてほしいです。<br>
-              イベントにご興味がある方は一緒に色々な経験を積み上げていきましょう。
-              また、子供たちはご挨拶、レッスンのマナーやステージマナーも一緒に学ぶことも出来る教室です。
-              是非、お気軽にお問い合わせください。<br>
-              <span class="introduction__name">講師 市川美奈</span>
-            </td>
-          </tr>
-        </table>
+              <div class="introduction__content-item">
+                <div class="introduction__content-title">
+                  <p class="introduction__content-title--text">ピアノレッスン（幼・小・中学生、高校生、大人）</p>
+                </div>
+                <div class="introduction__content-content">
+                  <p class="introduction__content-text">生徒に合わせてテキストを選択し、わかりやすいレッスンを行っています。
+                  良い点をほめて伸ばし、集中力、持続力、やりぬく力を育てます。音楽性を豊かにし、音楽を楽しいと思えるように指導します。
+                  </p>
+                </div>
+              </div>
+              <div class="introduction__content-item">
+                <div class="introduction__content-title">
+                  <p class="introduction__content-title--text">ソルフェージュ</p>
+                </div>
+                <div class="introduction__content-content">
+                  <p class="introduction__content-text">楽譜をよく理解して、良い耳を育てるためのソルフェージュレッスンを大切にしています。
+                  </p>
+                </div>
+              </div>
+              <div class="introduction__content-item">
+                <div class="introduction__content-title">
+                  <p class="introduction__content-title--text">	その他</p>
+                </div>
+                <div class="introduction__content-content">
+                  <p class="introduction__content-text">声楽の指導、学校の合唱伴奏を希望する生徒の指導も致します。<br>
+                    コンクール審査員の経験を活かし、ピアノ、声楽コンクールの指導も致します。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
     </section>
-    <div class="separator">
-      <img src="images/kenban.png" alt="鍵盤の画像">
-    </div>
-    <section class="lesson-introduction" id="lesson">
-      <div class="lesson-introduction__inner">
-        <h2 class="section-title">レッスン内容の紹介</h2>
-        <div class="lesson-overview">
-          <a class="lesson-overview__item" href="#about-lesson">
-            <img src="images/syokai01.png" alt="ピアノの鍵盤を演奏している様子" loading="lazy" class="lesson-overview__image">
-            <h3 class="lesson-overview__title">レッスン料金内容</h3>
-          </a>
-          <a class="lesson-overview__item" href="#concert">
-            <img src="images/syokai02.png" alt="発表会のグランドピアノと花飾り" loading="lazy" class="lesson-overview__image">
-            <h3 class="lesson-overview__title">発表会・コンクール</h3>
-          </a>
-          <a class="lesson-overview__item" href="#rule">
-            <img src="images/syokai03.png" alt="楽譜と緑の葉の爽やかなイメージ" loading="lazy" class="lesson-overview__image">
-            <h3 class="lesson-overview__title">教室の規約</h3>
-          </a>
+
+    <div class="section-divider section-divider--about-teacher" aria-hidden="true"></div>
+
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="images/S__6217738.jpg" alt="2人の子供が1台のピアノを弾いているところ">
+        </div>
+        <div class="swiper-slide">
+          <img src="images/S__6217739.jpg" alt="入口のドアの画像">
+        </div>
+        <div class="swiper-slide">
+          <img src="images/S__6217740.jpg" alt="レッスンと書いてある白い看板の画像">
+        </div>
+        <div class="swiper-slide">
+          <img src="images/S__6217741.jpg" alt="小さな女の子が一人でピアノを弾いているところ">
+        </div>
+        <div class="swiper-slide">
+          <img src="images/S__6217742.jpg" alt="ピアノ教室においてあるグランドピアノ">
+        </div>
+        <div class="swiper-slide">
+          <img src="images/S__6217743.jpg" alt="子供が二人でピアノを弾いている画像">
+        </div>
+        <div class="swiper-slide">
+          <img src="images/S__6217744.jpg" alt="教室においてあるアップライトピアノ">
+        </div>
+        <div class="swiper-slide">
+          <img src="images/S__6217745.jpg" alt="教室のインテリアの風景">
+        </div>
+        <div class="swiper-slide">
+          <img src="images/S__6217746.jpg" alt="鍵盤のアップ画像">
         </div>
       </div>
-    </section> <!--lesson-introduction-->
-    <section class="about-lesson"><!--レッスンについて-->
-        <h2 class="section-title" id="about-lesson">レッスンについて</h2>
-        <div class="inner text">
-          <div class="news__board">
-            <!-- <h3 class="news__board--title">レッスン内容</h3> -->
+    </div>
 
-            <div class="lesson-details__section">
-              <h3 class="news__board--title">対応レッスン</h3>
-              <ul class="lesson-details__list text">
-                <li class="lesson-details__list-item">ピアノ個人・エレクトーン個人</li>
-                <li class="lesson-details__list-item">楽典ソルフェージュ</li>
-                <li class="lesson-details__list-item">ピアノとエレクトーンのアンサンブル</li>
-                <li class="lesson-details__list-item">ヤマハ音楽グレード(要相談)</li>
-                <li class="lesson-details__list-item">
-                  鍵盤演奏前の小さなお子様向けのレッスン<br>
-                  （2歳は保護者同伴必須&nbsp;&nbsp;3歳から保護者同伴は相談又は自由）
-                </li>
-              </ul>
-            </div>
-            <!-- <h3 class="news__board--title mt-40">レッスン回数と料金</h3> -->
-            <div class="blog__accordion blog__accordion--lesson-price accordion js-accordion js-accordion--initially-closed">
-              <div class="blog__accordion-container">
-                <div class="blog__accordion-item js-accordion__item">
-                  <div class="blog__accordion-title js-accordion__title">
-                    <p class="blog__accordion-title--text js-accordion__title--text">レッスン回数と料金</p>
-                  </div>
-                  <div class="accordion__content js-accordion__content">
-                    <table class="lesson-details__table">
-                      <thead class="lesson-details__table-head">
-                        <tr class="lesson-details__table-row">
-                          <th class="lesson-details__table-header">レッスン回数/月</th>
-                          <th class="lesson-details__table-header">30分レッスン</th>
-                          <th class="lesson-details__table-header">60分レッスン</th>
-                        </tr>
-                      </thead>
-                      <tbody class="lesson-details__table-body">
-                        <tr class="lesson-details__table-row">
-                          <td class="lesson-details__table-cell">1回</td>
-                          <td class="lesson-details__table-cell">3,000円</td>
-                          <td class="lesson-details__table-cell">4,000円</td>
-                        </tr>
-                        <tr class="lesson-details__table-row">
-                          <td class="lesson-details__table-cell">2回</td>
-                          <td class="lesson-details__table-cell">5,000円</td>
-                          <td class="lesson-details__table-cell">7,000円</td>
-                        </tr>
-                        <tr class="lesson-details__table-row">
-                          <td class="lesson-details__table-cell">3回</td>
-                          <td class="lesson-details__table-cell">7,000円</td>
-                          <td class="lesson-details__table-cell">10,000円</td>
-                        </tr>
-                        <tr class="lesson-details__table-row">
-                          <td class="lesson-details__table-cell">4回</td>
-                          <td class="lesson-details__table-cell">8,000円</td>
-                          <td class="lesson-details__table-cell">13,000円</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-
+    <section class="teacher" id="teacher">
+      <div class="inner teacher__inner">
+        
+        <div class="teacher__top">
+          <div class="teacher__img">
+            <img src="images/info.png" alt="講師の写真" width="600" height="400">
           </div>
-          <div class="news__board">
-            <div class="news__board-inner">
-              <h3 class="news__board--title" id="concert">発表会・コンクール</h3>
-              <p class="lesson-details__table--left-start text">
-                発表会は１年に１回行っています。<br>（毎年７月頃）<br>
-                参加は自由ですが、日ごろの成果を発表する場でもありますので、多くの生徒さんに
-                毎年参加していただいています。<br>
-                コンクールの参加も可能です。毎年&nbsp;生徒さんが参加していますので、
-                ご相談下さい。
-              </p>
-
+          <div>
+            <h2 class="section-title section-title--teacher">講師のおもい</h2>
+            <div class="teacher__text text">私は日々、生徒と接することが大好きです。生徒の良い点を見つけ、ほめて伸ばします。
+              頑張れてよかったと思え、生徒の自信につながるレッスンを目指します。<br>
+              生徒の個性、想い、希望を大切にしながらピアノ、声楽の基礎力を養います。<br>
+              音楽を学んだことが、人生の中で、あたたかく心に残ってくれるように、情緒豊かな表現力、人間力が育つようにレッスンいたします。<br>
+              レッスンに来て下さる生徒さんの成長や喜びが、指導者である私の喜びです。共に学んでいける素晴らしい存在だと思っています。
             </div>
-            <div class="lesson-details__image">
-              <img src="images/hool.jpg" alt="ピアノと盾が並んでいる画像">
-              <img src="images/conpetition.jpg" alt="大きなホールで少年がピアノを演奏している様子">
+            <div class="teacher__info text">
+              <span class="teacher__text--name">講師名：玉田 恵美子</span>
+              <br><br>
+              小学校音楽教師経験あり
+              <br>
+              辰野町公民館講座「親子でコーラス”虹色ハーモニー”」指導
+              <br>
+              箕輪町　親子リトミック講座「ちびっ子リトミック」の指導経験あり
             </div>
+  
           </div>
-          <div class="news__board">
-            <div class="news__board-inner">
-              <h3 class="news__board--title" id="rule">規約</h3>
-              <ul class="rules__list  text">
-                <li class="riles__item">・レッスンは回数制で、30分コース（入れ替え含む40分）と60分コース（入れ替え含む60分）のどちらかをお選びください。(組み合わせ可能)</li>
-                <li class="riles__item">・当日の欠席はレッスンとしてカウントします。</li>
-                <li class="riles__item">・駐車場の関係で、入退室時間は厳守いただいております。</li>
-                <li class="riles__item">・年に4回、500円程度の冷暖房費のご協力をいただいております。。</li>
-                <li class="riles__item">・発表会、コンクールのほかにも、クラス弾きあい会やクリスマスミニ発表会などにご参加いただけます。</li>
-                <li class="riles__item">・入会金はありません。退会の際はひと月前までにご連絡ください。</li>
-                <li class="riles__item">・その他規約は入会時にお配りするのでご確認ください。</li>
-              </ul>
-            </div>
-          </div>
-          <div class="reverse-lesson-btn">
-            <a href="#lesson" class="reverse-lesson-btn--link">
-              <img class="piano-btn sp-none" src="images/logo.png" alt="教室のロゴイメージ" >
-              <p class="reverse-lesson-btn--text">メニューにもどる</p>
-            </a>
-          </div>
-        </div> <!--インナー-->
-        <div class="separator">
-          <img src="images/kenban.png" alt="鍵盤の画像">
         </div>
-    </section><!--about-lesson-->
+
+      </div>
+    </section>
+
+    <div class="wave-divider wave-divider--teacher-concert" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path d="M0,85 C130,85 230,15 360,15 C490,15 590,85 720,85 C850,85 950,15 1080,15 C1210,15 1310,85 1440,85 L1440,100 L0,100 Z" fill="#F9F2DC"/>
+      </svg>
+    </div>
+
+    <section class="about-lesson" id="concert">
+      <h2 class="section-title">コンクール実績</h2>
+      <div class="inner text">
+        <div class="news__board">
+          <div class="news__board-inner">
+            <p class="lesson-details__table--left-start text">
+              ピティナピアノコンペティション<br>
+              日本クラシックコンクール（ピアノ・声楽）<br>
+              ピティナピアノステップ<br>
+              など、様々なコンクールで実績があります。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wave-divider wave-divider--concert-voice" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path d="M0,85 C130,85 230,15 360,15 C490,15 590,85 720,85 C850,85 950,15 1080,15 C1210,15 1310,85 1440,85 L1440,100 L0,100 Z" fill="#ECD283"/>
+      </svg>
+    </div>
+
     <section class="blog" id="voice">
-              <h2 class="news__board--title">生徒さんの声</h2>
+      <h2 class="news__board--title">生徒さんの声</h2>
       <div class="text">
         <div class="blog__accordion accordion js-accordion">
           <div class="blog__accordion-container">
             <div class="blog__accordion-item js-accordion__item is-open">
               <div class="blog__accordion-title js-accordion__title">
-                <p class="blog__accordion-title--text js-accordion__title--text">	&#119070;&nbsp;レッスンを始めようと思ったきっかけは&#63;</p>
+                <p class="blog__accordion-title--text js-accordion__title--text">高校1年生、中学2年生の姉妹のお母様<span class="blog__accordion-title--text--arrow"><br class="md-show"  >（下に開きます）</span></p>
               </div>
               <div class="accordion__content js-accordion__content">
-                <p class="accordion-text">&#9835;&nbsp;左利きだから、右も使えるようにしたくて、ピアノを習いました（小６男児）</p>
-                <p class="accordion-text">&#9835;&nbsp;友達を見ていて、自分も色々な曲を弾いてみたいと思ったから（中３女児）</p>
-                <p class="accordion-text">&#9835;&nbsp;ピアノが弾けるようになりたい!楽譜が読めるようになりたい&#33;と思ったから（小6女児）</p>
-
+                <p class="accordion-text">娘2人、3歳のころからお世話になって10年以上が経ちました。<br>
+                小さい頃は子どもたちが好きなリトミックをレッスンに取り入れてくださり、毎回とても楽しんでいました。<br>
+              　進級して、難しい曲に苦戦しても沢山ほめてくださるので子どもたちの自信につながっています。<br>
+              　また、歌の指導をしていただいたことがきっかけで、二人とも合唱部に入り、音楽がさらに好きになりました。
+            今では姉妹で合唱曲の伴奏を仲良く楽しんでいます。<br>これからも親子共々、音楽を楽しんでいきたいと思います。</p>
               </div>
             </div>
-            <div class="blog__accordion-item js-accordion__item">
+          </div>
+          <div class="blog__accordion-container">
+            <div class="blog__accordion-item js-accordion__item is-open">
               <div class="blog__accordion-title js-accordion__title">
-                <p class="blog__accordion-title--text js-accordion__title--text">	&#119070;&nbsp;初めてみて良かったと思うことはありますか&#63;</p>
+                <p class="blog__accordion-title--text js-accordion__title--text">中学2年生男児：お母様</p>
               </div>
               <div class="accordion__content js-accordion__content">
-                <p class="accordion-text">&#9835;&nbsp;1曲1曲弾けるようになってくると、本人の自信につながってくるので、楽しく集中力を高められると思います。<br>達成感を味わえます。(小２男児母)</p>
-                <p class="accordion-text">&#9835;&nbsp;聞き手以外の手を使うので、良い緊張感や、集中力になっている感じがする。家でピアノの音がすると心地よい。音楽会などで成果が出ていると思う（小６女児）</p>
-                <p class="accordion-text">&#9835;&nbsp;私自身がピアノ教室に良い思い出が無く、結局ピアノから離れ、弾けなくなってしまったので、娘が楽しそうにピアノを弾いていると嬉しくなります。（小3女児母）</p>
-                <p class="accordion-text">&#9835;&nbsp;色々なコンクールに出られるようになった（小６女児）</p>
+                <p class="accordion-text">息子が年長からお世話になっています。親から見て厳しくも楽し気ねレッスンで、嫌になりそうな単調な練習も、様々な工夫をしていただいているのがわかります。色々なヒントがもらえます。子供のやる気を引き出すのが上手な先生です。</p>
               </div>
             </div>
-            <div class="blog__accordion-item js-accordion__item">
+          </div>
+          <div class="blog__accordion-container">
+            <div class="blog__accordion-item js-accordion__item is-open">
               <div class="blog__accordion-title js-accordion__title">
-                <p class="blog__accordion-title--text js-accordion__title--text">	&#119070;&nbsp;レッスンに通ってみての感想は&#63;</p>
+                <p class="blog__accordion-title--text js-accordion__title--text">中学2年小学2年姉妹：お母様</p>
               </div>
               <div class="accordion__content js-accordion__content">
-                <p class="accordion-text">&#9835;&nbsp;他の習い事は休会中です。ピアノも一時期はあきらめようかとも思いました。
-                  先生の臨機応変な対応のおかげで通い続けることが出来て、メヌエットを弾けるようになったことは本人の自信となったようです（小３女児母）</p>
-                <p class="accordion-text">&#9835;&nbsp;表現力の大切さ、手以外にも体で演奏することを知れてよかった。レッスン以外のお話も聞いてくださり、感謝しています。
-                  知らなかった世界が広がりました（中３女児）</p>
-                <p class="accordion-text">&#9835;&nbsp;音符がスムーズに書けるようになりました。一番うれしかったのは音符が読めるようになったことです！（小6女児）</p>
+                <p class="accordion-text">町のリトミック教室で先生と出会い、子どもが保育園の頃より教室でお世話になっています。年齢に合わせて楽しいレッスンを行って下さいます。長女はコンクールへの挑戦もさせていただき成長に感謝です。<br>
+                発表会では毎年大きなステージで演奏させていただき貴重な経験を積ませていただいています。これからも音楽を楽しんでいってほしいなと願っています。</p>
+              </div>
+            </div>
+          </div>
+          <div class="blog__accordion-container">
+            <div class="blog__accordion-item js-accordion__item is-open">
+              <div class="blog__accordion-title js-accordion__title">
+                <p class="blog__accordion-title--text js-accordion__title--text">中学2年生男児：お母様</p>
+              </div>
+              <div class="accordion__content js-accordion__content">
+                <p class="accordion-text">息子が年長児からお世話になっています。親から見て厳しくも楽し気なレッスンで、
+                  嫌になりそうな単調な練習も様々な工夫をしていただいているのがわかります。<br>
+                  色々なヒントがいただけます。子供のやる気を引き出すのが上手な先生です！
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="blog__accordion-container">
+            <div class="blog__accordion-item js-accordion__item is-open">
+              <div class="blog__accordion-title js-accordion__title">
+                <p class="blog__accordion-title--text js-accordion__title--text">中学2年、中学1年、小学1年：お母様</p>
+              </div>
+              <div class="accordion__content js-accordion__content">
+                <p class="accordion-text">三姉妹を比べることなくそれぞれの子にあった進度でレッスンをしていただけるので、楽しく通わせることが出来ます。
+                  小さいときはとにかく音楽を楽しむことを大切に歌やリトミックも交えて音やリズムを楽しみ、年齢に合わせ専門的な知識も教えていただけるので、
+                  授業や部活でもとても役立っていて、先生に感謝しています。<br>
+                  ピアノの技術だけでなく、娘たちの成長を一緒に見守っていただけることがとても嬉しく、ありがたいです。<br>
+                  これからも技術とともに、人間的な成長も一緒に見守っていただきたく思います。
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="blog__accordion-container">
+            <div class="blog__accordion-item js-accordion__item is-open">
+              <div class="blog__accordion-title js-accordion__title">
+                <p class="blog__accordion-title--text js-accordion__title--text">中学2年生女児</p>
+              </div>
+              <div class="accordion__content js-accordion__content">
+                <p class="accordion-text">体を使って音楽を触れ合うので、ピアノが全くできなくても楽しめる。指練習や、聴音、スケールピアノの基礎から出来て、とにかく先生が優しい。</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section><!--blog-->
-    <div class="swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="images/swiper01.jpg" alt="2人の子供が1台のピアノを弾いているところ">
-        </div>
-        <div class="swiper-slide">
-          <img src="images/swiper02.jpg" alt="入口のドアの画像">
-        </div>
-        <div class="swiper-slide">
-          <img src="images/swiper04.jpg" alt="レッスンと書いてある白い看板の画像">
-        </div>
-        <div class="swiper-slide">
-          <img src="images/swiper05.jpg" alt="小さな女の子が一人でピアノを弾いているところ">
-        </div>
-        <div class="swiper-slide">
-          <img src="images/swiper06.jpg" alt="ピアノ教室においてあるグランドピアノ">
-        </div>
-        <div class="swiper-slide">
-          <img src="images/swiper03.jpg" alt="子供が二人でピアノを弾いている画像">
-        </div>
-        <div class="swiper-slide">
-          <img src="images/swiper08.jpg" alt="教室においてあるアップライトピアノ">
-        </div>
-        <div class="swiper-slide">
-          <img src="images/swiper09.jpg" alt="教室のインテリアの風景">
-        </div>
-        <div class="swiper-slide">
-          <img src="images/swiper10.jpg" alt="鍵盤のアップ画像">
-        </div>
-      </div>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-    </div>
-    <section class="news" id="news">
-      <img class="news__tree-left-img" src="images/tree-left.png" alt="木の枝のイメージ" width="422" height="186">
-      <img class="news__tree-right-img" src="images/tree-right.png" alt="気の枝のイメージ" width="422" height="186">
-      <div class="news__inner">
-        <h2 class="section-title">最新ブログ</h2>
-        <div class="news__board">
-          <ul  id="ameblo-feed" class="news__items text">
-            <!-- <li>
-              <dl class="news__item">
-                <dt class="news__item-title">レッスン可能時間</dt>
-                <dd class="news__item-main">〇曜日〇時～</dd>
-              </dl>
-              <dl class="news__item">
-                <dt class="news__item-title">〇月〇日</dt>
-                <dd class="news__item-main">お知らせの内容お知らせの内容お知らせの内容お知らせの内容お知らせの内容お知ら
-                  せの内容お知らせの内容お知らせの内容お知らせの内容お知らせの内容</dd>
-              </dl>
-              <dl class="news__item">
-                <dt class="news__item-title">〇月〇日</dt>
-                <dd class="news__item-main">お知らせの内容お知らせの内容お知らせの内容お知らせの</dd>
-              </dl>
-              <dl class="news__item">
-                <dt class="news__item-title">〇月〇日</dt>
-                <dd class="news__item-main">お知らせの内容お知らせの内容お知らせの内容お知らせの内容お知らせの内容お知ら
-                  せの内容お知</dd>
-              </dl>
-            </li> -->
-          </ul>
-        </div>
-        <script>
-          fetch('https://rss2json.com/api.json?rss_url=https://ameblo.jp/animprin0ma0/rss20.xml')
-            .then(response => response.json())
-            .then(data => {
-              const container = document.getElementById('ameblo-feed');
-              const items = data.items.slice(0, 5); // 最新3件を取得
-              items.forEach(item => {
-                const li = document.createElement('li');
-                li.innerHTML = `
-                  <dl class="news__item">
-                    <dt class="news__item-title">${new Date(item.pubDate).toLocaleDateString()}</dt>
-                    <dd class="news__item-main"><a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.title}</a></dd>
-                  </dl>
-                `;
-                container.appendChild(li);
-              });
-            });
-        </script>
-      </div>
-      <div class="blog__link">
-        <div>
-          <h3 class="button"><a href="https://ameblo.jp/animprin0ma0/theme-10115006859.html" class="button">過去のブログ</a></h3>
-          <p>↑2020年から2025年4月のブログ</p>
-        </div>
-      </div>
-
     </section>
+
+    <div class="wave-divider wave-divider--voice-contact" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path d="M0,85 C130,85 230,15 360,15 C490,15 590,85 720,85 C850,85 950,15 1080,15 C1210,15 1310,85 1440,85 L1440,100 L0,100 Z" fill="#F9F2DC"/>
+      </svg>
+    </div>
+
     <section class="contact" id="contact">
       <div class="text">
         <div class="contact-form">
           <div class="contact-form__inner">
-            <h2 class="contact-form__heading">Contact</h2>
+            <h2 class="contact-form__heading">お問い合わせ</h2>
 
 
             <form
-            action="https://formspree.io/f/mvgwdvwd"
+            action="https://formspree.io/f/xnjkwjvo"
             method="POST"
             class="contact-form__form"
             accept-charset="UTF-8"
           >
+          <input
+          type="hidden"
+          name="_subject"
+          value="玉田ピアノ教室 お問い合わせ">
+          
             <div class="contact-form__field">
               <label for="name" class="contact-form__label">お名前</label>
               <input type="text" id="name" name="name"
@@ -522,13 +399,6 @@
                 placeholder="example@email.com"
                 class="contact-form__input" required>
             </div>
-          
-            <div class="contact-form__field">
-              <label for="line" class="contact-form__label">LINE-ID</label>
-              <input type="text" id="line" name="line"
-                placeholder="example"
-                class="contact-form__input">
-            </div>
             <div class="contact-form__field">
               <label for="message" class="contact-form__label">お問い合わせ内容</label>
               <textarea id="message" name="message"
@@ -536,63 +406,22 @@
                 class="contact-form__textarea" required></textarea>
             </div>
             <!-- 任意: 送信後リダイレクト先 -->
-            <input type="hidden" name="_redirect" value="https://ichikawa-piano-lesson.github.io/thanks.html">
+            <input type="hidden" name="_redirect" value="/thanks.html">
             <!-- 任意: スパム防止 -->
             <input type="text" name="_gotcha" style="display:none">
             <div class="contact-form__button">
-              <button type="submit" class="contact-form__submit">送信</button>
+              <button type="submit" class="contact-form__submit">送信する</button>
             </div>
           </form>
 
-
-
-
-
-
-
-
-            <!-- <form action="#" method="post" class="contact-form__form">
-              <div class="contact-form__field">
-                <label for="name" class="contact-form__label">お名前</label>
-                <input type="text" id="name" name="name"
-                  placeholder="お名前をフルネームで入力してください"
-                  class="contact-form__input">
-              </div>
-              <div class="contact-form__field">
-                <label for="tel" class="contact-form__label">電話番号</label>
-                <input type="tel" id="tel" name="tel" placeholder="000-0000-0000" class="contact-form__input">
-              </div>
-              <div class="contact-form__field">
-                <label for="email" class="contact-form__label">メールアドレス</label>
-                <input type="email" id="email" name="email" placeholder="example@email.com" class="contact-form__input">
-              </div>
-              <div class="contact-form__field">
-                <label for="line" class="contact-form__label">LINE-ID</label>
-                <input type="text" id="line" name="line" placeholder="example" class="contact-form__input">
-              </div>
-              <div class="contact-form__field">
-                <label for="message" class="contact-form__label">お問い合わせ内容</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  placeholder="入力してください"
-                  class="contact-form__textarea"
-                ></textarea>
-              </div>
-              <div class="contact-form__button">
-                <button type="submit" class="contact-form__submit">送信</button>
-              </div>
-            </form> -->
           </div>
         </div>
       </div>
       <a href="#fv" class="for-top-btn hidden" aria-label="ページ上部へ"></a>
-
-      <!-- <a  class="for-top-btn-wrap" href="#fv"><img class="for-top-btn hidden" src="images/Top-btn.png" alt="トップへ戻るボタン"></a> -->
     </section><!--blog-->
   </main>
   <footer class="footer">
-    <small class="footer__copyright">&copy;2026 Ichikawa Piano Lesson</small>
+    <small class="footer__copyright">&copy;2026 玉田音楽教室</small>
   </footer>
 </body>
 </html>
