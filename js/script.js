@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const items = accordion.querySelectorAll(".js-accordion__item");
     const shouldOpenFirst = !accordion.classList.contains("js-accordion--initially-closed");
 
-    const setAccordionState = (item, isOpen) => {
+    const setAccordionState = (item, isOpen, shouldAnimate = true) => {
       const title = item.querySelector(".js-accordion__title");
       const content = item.querySelector(".js-accordion__content");
 
@@ -176,12 +176,47 @@ document.addEventListener("DOMContentLoaded", () => {
       item.classList.toggle("is-open", isOpen);
       title.classList.toggle("is-open", isOpen);
       title.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      content.style.display = isOpen ? "block" : "none";
-      content.style.maxHeight = isOpen ? `${content.scrollHeight}px` : null;
+
+      if (!shouldAnimate) {
+        content.classList.toggle("is-open", isOpen);
+        content.style.display = isOpen ? "block" : "none";
+        content.style.maxHeight = isOpen ? `${content.scrollHeight}px` : null;
+        return;
+      }
+
+      if (isOpen) {
+        content.style.display = "block";
+        content.style.maxHeight = "0px";
+
+        requestAnimationFrame(() => {
+          content.classList.add("is-open");
+          content.style.maxHeight = `${content.scrollHeight}px`;
+        });
+      } else {
+        content.style.maxHeight = `${content.scrollHeight}px`;
+
+        requestAnimationFrame(() => {
+          content.classList.remove("is-open");
+          content.style.maxHeight = "0px";
+        });
+
+        const hideContent = (event) => {
+          if (event.propertyName === "max-height") {
+            content.removeEventListener("transitionend", hideContent);
+
+            if (!content.classList.contains("is-open")) {
+              content.style.display = "none";
+              content.style.maxHeight = null;
+            }
+          }
+        };
+
+        content.addEventListener("transitionend", hideContent);
+      }
     };
 
     items.forEach((item, index) => {
-      setAccordionState(item, shouldOpenFirst && index === 0);
+      setAccordionState(item, shouldOpenFirst && index === 0, false);
     });
 
     accordion.addEventListener("click", (event) => {

@@ -259,7 +259,7 @@ select::-ms-expand {
 }
 .header__item {
   height: inherit;
-  color: #af8b1f;
+  color: #DEB12B;
   z-index: 100;
 }
 
@@ -275,7 +275,7 @@ select::-ms-expand {
 .header__link {
   font-size: 16px;
   font-weight: 500;
-  color: #8e752b;
+  color: #af8b1f;
   padding: 7px 15px;
   border-radius: 15px;
   margin: 10px auto;
@@ -415,7 +415,7 @@ select::-ms-expand {
   font-weight: 500;
   letter-spacing: 0.05em;
   line-height: 1.875;
-  color: #DEB12B;
+  color: #af8b1f;
   display: inline-block;
   width: 200px;
   padding-bottom: 25px;
@@ -478,7 +478,7 @@ select::-ms-expand {
 
 @media screen and (max-width: 768px) {
   .fv {
-    height: 400px;
+    height: auto;
   }
 }
 .fv-bg {
@@ -492,7 +492,7 @@ select::-ms-expand {
 
 @media screen and (max-width: 768px) {
   .fv-bg {
-    height: auto;
+    height: 400px;
   }
 }
 /* セクションごとの音符装飾 */
@@ -527,7 +527,13 @@ main > section {
 
 #teacher .section-note,
 #voice .section-note {
-  color: rgb(249, 242, 220);
+  color: #8F6426;
+}
+
+#about .section-note,
+#concert .section-note,
+#contact .section-note {
+  color: #B9863A;
 }
 
 @keyframes section-note-float {
@@ -930,6 +936,7 @@ main > section {
 }
 .news__board {
   max-width: 1030px;
+  border-radius: 25px;
   margin: 30px auto;
   padding-top: 60px;
   padding-bottom: 27px;
@@ -1092,9 +1099,14 @@ main > section {
 .introduction__top--detail {
   display: flex;
   justify-content: center;
-  padding-top: 20px;
+  padding-top: 80px;
   text-align: left;
   padding-bottom: 20px;
+}
+@media screen and (max-width: 768px) {
+  .introduction__top--detail {
+    padding-top: 0;
+  }
 }
 
 .introduction__top--detail th {
@@ -1141,8 +1153,6 @@ main > section {
 }
 .introduction__content {
   width: 100%;
-  padding-top: 50px;
-  padding-bottom: 50px;
 }
 
 @media screen and (max-width: 768px) {
@@ -1168,8 +1178,7 @@ main > section {
 
 @media screen and (max-width: 768px) {
   .introduction__content-title {
-    padding: 10px;
-    margin: 0;
+    padding: 20px 0 10px 0;
   }
 }
 .introduction__content-title--text {
@@ -1205,7 +1214,7 @@ main > section {
 
 @media screen and (max-width: 768px) {
   .introduction__content-content {
-    padding: 16px 20px 24px;
+    padding: 0;
   }
 }
 .blog__link {
@@ -1307,8 +1316,7 @@ main > section {
   max-width: 100%;
   color: #DEB12B;
   text-align: center;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 50px;
   background-image: url(../images/orange-back.png);
   background-color: #ECD283;
 }
@@ -1509,13 +1517,6 @@ main > section {
     padding-top: 50px;
   }
 }
-.blog__accordion-title--text--arrow {
-  font-size: 15px;
-  color: #af8b1f;
-  opacity: 0.8;
-  font-weight: normal;
-
-}
 .blog__accordion {
   width: 100%;
   max-width: 1000px;
@@ -1535,23 +1536,25 @@ main > section {
   width: 100%;
 }
 
+.blog__accordion-container {
+  padding-top: 20px;
+}
+
 .blog__accordion-title {
   position: relative;
   cursor: pointer;
   align-items: center;
   background-color: #F9F2DC;
   border-radius: 10px;
-  margin-top: 20px;
-  margin-right: auto;
-  margin-left: auto;
-  max-width: 70%;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  width: 100%;
+  max-width: 72%;
+  margin: 0 auto;
 }
 
 @media screen and (max-width: 768px) {
   .blog__accordion-title {
     padding: 10px 35px 10px 10px;
+    max-width: 85%;
   }
 }
 .blog__link {
@@ -1656,7 +1659,17 @@ main > section {
 }
 .accordion__content {
   display: none;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
   padding: 20px 60px;
+  transform: translateY(-6px);
+  transition: max-height 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease, transform 0.45s ease;
+}
+
+.accordion__content.is-open {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media screen and (max-width: 768px) {
@@ -1668,7 +1681,6 @@ main > section {
   font-size: 15px;
   line-height: 1.867;
   padding-left: 1em;
-  text-indent: -1rem;
   letter-spacing: 0.05em;
   padding-top: 1em;
 }
@@ -1760,7 +1772,7 @@ main > section {
 }
 .contact-form__heading {
   text-align: center;
-  color: #DEB12B;
+  color: #423f36;
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -1781,19 +1793,19 @@ main > section {
 }
 
 .contact-form__inner {
-  max-width: 80%;
+  max-width: 900px;
   margin: 80px auto 0;
   background-color: #FFFFFF;
   padding: 58px 72px 72px;
   border: 4px solid #F9F2DC;
-  border-radius:0 24px 0 24px;
+  border-radius: 0 0 24px 24px;
   box-shadow: none;
 }
 
 @media screen and (max-width: 768px) {
   .contact-form__inner {
+    max-width: 720px;
     padding: 48px 44px 58px;
-    max-width: 100%;
   }
 }
 @media screen and (max-width: 375px) {
@@ -1801,7 +1813,7 @@ main > section {
     margin-top: 40px;
     padding: 38px 22px 44px;
     border-width: 3px;
-    border-radius: 0 50px 0 50px;
+    border-radius: 0 0 18px 18px;
   }
 }
 /* 見出しのスタイル */
@@ -1822,7 +1834,7 @@ main > section {
   font-size: 0.95rem;
   font-weight: 700;
   margin-bottom: 9px;
-  color: #DEB12B;
+  color: #423f36;
 }
 
 .contact-form__input,
@@ -1914,7 +1926,8 @@ main > section {
 }
 
 .contact-form__submit:hover {
-  background-color: #F9F2DC;
+  background-color: #DEB12B;
+  color: #FFFFFF;
   transform: translateY(-2px);
 }
 
@@ -2122,9 +2135,19 @@ main > section {
   height: 100px;
 }
 
+.wave-divider__path--sp {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .wave-divider svg {
     height: 60px;
+  }
+  .wave-divider__path--pc {
+    display: none;
+  }
+  .wave-divider__path--sp {
+    display: inline;
   }
 }
 .wave-divider--about-teacher {
@@ -2157,49 +2180,59 @@ main > section {
 
 .teacher {
   padding-top: 100px;
-  padding-bottom: 80px;
+  padding-bottom: 100px;
   color: #af8b1f;
 }
 
 .section-title.section-title--teacher {
   color: #af8b1f;
 }
-
 @media screen and (max-width: 768px) {
   .section-title.section-title--teacher {
     margin-top: 30px;
   }
 }
+
 .teacher__top {
   display: flex;
 }
-
 @media screen and (max-width: 768px) {
   .teacher__top {
     display: block;
   }
 }
+
+.teacher__info.text {
+  padding-top: 80px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.teacher__text--name {
+  font-weight: bold;
+}
+
 .teacher__text.text {
   font-size: 16px;
   line-height: 1.8;
   margin-top: 20px;
   padding: 0 90px;
 }
-
 @media screen and (max-width: 768px) {
   .teacher__text.text {
-    padding: 0 20px;
+    padding: 0;
   }
 }
-.teacher__info {
-  margin-top: 50px;
-  text-align: center;
+
+.teacher__img img {
+  aspect-ratio: 1536/1024;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
 }
-.teacher__text--name {
-  font-size: 18px;
-  color: #af8b1f;
-  font-weight: bold;
-  margin-right: 10px;
+
+.teacher__img {
+  max-width: 500px;
 }
 
 /* コンクール実績：削除済み背景画像を除去 */

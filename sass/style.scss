@@ -274,7 +274,7 @@ select::-ms-expand {
 .header__link {
   font-size: 16px;
   font-weight: 500;
-  color: #F9F2DC;
+  color: #af8b1f;
  // background-color: ;
   padding: 7px 15px;
   border-radius: 15px;
@@ -415,7 +415,7 @@ select::-ms-expand {
   font-weight: 500;
   letter-spacing: 0.05em;
   line-height: 1.875;
-  color: #DEB12B;
+  color: #af8b1f;
   display: inline-block;
   width: 200px;
   padding-bottom: 25px;
@@ -491,7 +491,7 @@ select::-ms-expand {
 }
 @media screen and (max-width: 768px) {
   .fv-bg {
-    height: auto;
+    height: 400px;
   }
 }
 
@@ -524,7 +524,13 @@ main > section {
 
 #teacher .section-note,
 #voice .section-note {
-  color: rgb(249, 242, 220);
+  color: #8F6426;
+}
+
+#about .section-note,
+#concert .section-note,
+#contact .section-note {
+  color: #B9863A;
 }
 
 @keyframes section-note-float {
@@ -923,7 +929,6 @@ main > section {
 
 .news__board {
   max-width: 1030px;
-  background-color: #FFFFFF;
   border-radius: 25px;
   margin: 30px auto;
   padding-top: 60px;
@@ -1083,9 +1088,12 @@ main > section {
 .introduction__top--detail {
   display: flex;
   justify-content: center;
-  padding-top: 20px;
+  padding-top: 80px;
   text-align: left;
   padding-bottom: 20px;
+  @media screen and (max-width: 768px) {
+    padding-top: 0;
+  }
 }
 
 .introduction__top--detail th {
@@ -1156,7 +1164,7 @@ main > section {
 }
 @media screen and (max-width: 768px) {
   .introduction__content-title {
-    padding: 10px 35px 10px 10px;
+    padding: 20px 0 10px 0;
   }
 }
 
@@ -1192,7 +1200,7 @@ main > section {
 }
 @media screen and (max-width: 768px) {
   .introduction__content-content {
-    padding: 16px 20px 24px;
+    padding: 0;
   }
 }
 
@@ -1533,11 +1541,7 @@ main > section {
   max-width: 1000px;
   margin: 50px auto 0;
 }
-@media screen and (max-width: 768px) {
-  .blog__accordion {
-    padding-top: 40px;
-  }
-}
+
 
 .accordion__content {
   text-align: left;
@@ -1546,19 +1550,23 @@ main > section {
 .accordion {
   width: 100%;
 }
-
+.blog__accordion-container {
+  padding-top: 20px;
+}
 .blog__accordion-title {
   position: relative;
   cursor: pointer;
   align-items: center;
   background-color: #F9F2DC;
-  margin-bottom: 20px; /* 必要な隙間の値を設定 */
   border-radius: 10px;
-  margin: 0 20px 0;
+  width: 100%;
+  max-width: 72%;
+  margin: 0 auto;
 }
 @media screen and (max-width: 768px) {
   .blog__accordion-title {
     padding: 10px 35px 10px 10px;
+    max-width: 85%;
   }
 }
 
@@ -1664,7 +1672,17 @@ main > section {
 
 .accordion__content {
   display: none;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
   padding: 20px 60px;
+  transform: translateY(-6px);
+  transition: max-height 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease, transform 0.45s ease;
+}
+
+.accordion__content.is-open {
+  opacity: 1;
+  transform: translateY(0);
 }
 @media screen and (max-width: 768px) {
   .accordion__content {
@@ -1676,7 +1694,7 @@ main > section {
   font-size: 15px;
   line-height: 1.867;
   padding-left: 1em;
-  text-indent: -1rem;
+//  text-indent: -1rem;
   letter-spacing: 0.05em;
   padding-top: 1em;
 }
@@ -1784,7 +1802,7 @@ main > section {
 }
 
 .contact-form__inner {
-  max-width: 720px;
+  max-width: 900px;
   margin: 80px auto 0;
   background-color: #FFFFFF;
   padding: 58px 72px 72px;
@@ -1794,7 +1812,7 @@ main > section {
 }
 @media screen and (max-width: 768px) {
   .contact-form__inner {
-    max-width: 620px;
+    max-width: 720px;
     padding: 48px 44px 58px;
   }
 }
@@ -1888,7 +1906,7 @@ main > section {
 
 .contact-form__submit {
   background-color: #F9F2DC;
-  color: #fff;
+  color: #DEB12B;
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -1909,13 +1927,14 @@ main > section {
   right: 28px;
   width: 14px;
   height: 14px;
-  border-top: 3px solid #FFFFFF;
-  border-right: 3px solid #FFFFFF;
+  border-top: 3px solid #DEB12B;
+  border-right: 3px solid #DEB12B;
   transform: translateY(-50%) rotate(45deg);
 }
 
 .contact-form__submit:hover {
-  background-color: #6F86C8;
+  background-color: #DEB12B;
+  color: #FFFFFF;
   transform: translateY(-2px);
 }
 
@@ -2123,9 +2142,21 @@ main > section {
   height: 100px;
 }
 
+.wave-divider__path--sp {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .wave-divider svg {
     height: 60px;
+  }
+
+  .wave-divider__path--pc {
+    display: none;
+  }
+
+  .wave-divider__path--sp {
+    display: inline;
   }
 }
 
@@ -2147,7 +2178,12 @@ main > section {
 }
 .teacher {
   padding-top: 100px;
+  padding-bottom: 100px;
   color: #af8b1f;
+  @media screen and (max-width: 768px)/ {
+    padding-top: 30px;
+    padding-bottom: 50px;
+  }
 }
 .section-title.section-title--teacher {
   color: #af8b1f;
@@ -2162,6 +2198,14 @@ main > section {
     display: block;
   }
 }
+.teacher__info.text {
+  padding-top: 80px;
+  text-align: center;
+  line-height: 1.5;
+}
+.teacher__text--name {
+  font-weight: bold;
+}
 .teacher__text.text {
   font-size: 16px;
   line-height: 1.8;
@@ -2169,9 +2213,18 @@ main > section {
   padding: 0 90px;
 
   @media screen and (max-width: 768px) {
-    padding: 0 20px;
+    padding: 0;
   }
 }
+.teacher__img img {
+  aspect-ratio: 1536/1024;
+  object-fit: cover;
+  width: 100%;
+}
+.teacher__img {
+  max-width: 500px;
+}
+
 /* コンクール実績：削除済み背景画像を除去 */
 #concert {
   background-image: none;
