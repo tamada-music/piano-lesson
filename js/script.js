@@ -1,12 +1,46 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Swiperは他処理より先に初期化（後続エラーで消えないようにする）
+  const swiperElement = document.querySelector(".gallery-swiper") || document.querySelector(".swiper");
+  if (window.Swiper && swiperElement) {
+    try {
+      new window.Swiper(swiperElement, {
+        loop: true,
+        loopAdditionalSlides: 4,
+        slidesPerView: 1,
+        spaceBetween: 10,
+        speed: 6000,
+        allowTouchMove: false,
+        autoplay: {
+          delay: 1,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: false,
+        },
+        breakpoints: {
+          500: {
+            slidesPerView: 3,
+          },
+          1024: {
+            slidesPerView: 4,
+          },
+          1440: {
+            slidesPerView: 5,
+          },
+        },
+      });
+    } catch (error) {
+      console.error("Swiper init failed:", error);
+    }
+  }
+
   // 各セクションをスクロール時にふんわり表示
+  // NOTE: `.blog > .text` はアコーディオン操作を潰すため GSAP 対象にしない
   const fadeUpElements = document.querySelectorAll(
-    ".introduction__inner--bottom, .about-lesson > .section-title, .about-lesson > .inner, .blog > .news__board--title, .blog > .text"
+    ".about-studio__header, .about-studio__guide, .about-studio__lessons, .teacher-profile__header, .teacher-profile__message, .teacher-profile__bio, .competition-results__header, .competition-results__card, .voice-section__header, .contact__header, .contact-form"
   );
   const fvBg = document.querySelector(".fv-bg");
   const fvTitleTexts = document.querySelectorAll(".fv__title span");
-  const introductionImage = document.querySelector(".introduction__img");
-  const teacherImage = document.querySelector(".teacher__img");
+  const introductionImage = document.querySelector(".about-studio__photo");
+  const teacherImage = document.querySelector(".teacher-profile__photo");
   const isReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   if (fvBg && fvTitleTexts.length > 0 && window.gsap && window.ScrollTrigger && !isReducedMotion) {
@@ -136,33 +170,65 @@ document.addEventListener("DOMContentLoaded", () => {
   const drawerLinks = document.querySelectorAll(".drawer-menu__link");
   const hamburger = document.querySelector(".js-hamburger");
   const drawer = document.querySelector(".js-drawer");
+  const siteHeader = document.querySelector(".js-header");
+
+  const setDrawerState = (isOpen) => {
+    if (!hamburger || !drawer) {
+      return;
+    }
+
+    hamburger.classList.toggle("is-active", isOpen);
+    drawer.classList.toggle("is-open", isOpen);
+    hamburger.setAttribute("aria-expanded", String(isOpen));
+    hamburger.setAttribute("aria-label", isOpen ? "メニューを閉じる" : "メニューを開く");
+    document.body.style.overflow = isOpen ? "hidden" : "";
+  };
 
   // ハンバーガーメニューの開閉
   document.body.addEventListener("click", (e) => {
-    if (e.target.closest(".js-hamburger")) {
-      hamburger.classList.toggle("is-active");
-      drawer.classList.toggle("is-open");
+    if (!e.target.closest(".js-hamburger") || !hamburger || !drawer) {
+      return;
     }
+
+    const willOpen = !drawer.classList.contains("is-open");
+    drawer.classList.remove("is-closing");
+    setDrawerState(willOpen);
   });
 
   // メニューリンククリックでメニューを閉じる（アニメーション付き）
   drawerLinks.forEach((link) => {
     link.addEventListener("click", () => {
+      if (!hamburger || !drawer) {
+        return;
+      }
+
       hamburger.classList.remove("is-active");
+      hamburger.setAttribute("aria-expanded", "false");
+      hamburger.setAttribute("aria-label", "メニューを開く");
+      document.body.style.overflow = "";
       drawer.classList.add("is-closing");
 
       setTimeout(() => {
         drawer.classList.remove("is-open", "is-closing");
-      }, 400); // CSSのアニメーション時間に合わせる
+      }, 350);
     });
   });
 
+  if (siteHeader) {
+    const updateHeaderScrollState = () => {
+      siteHeader.classList.toggle("is-scrolled", window.scrollY > 12);
+    };
+
+    updateHeaderScrollState();
+    window.addEventListener("scroll", updateHeaderScrollState, { passive: true });
+  }
 
 
-  // アコーディオン（CSS grid-template-rows でスムーズに開閉）
+
+  // アコーディオン（クラス切り替えのみ。高さ計測に依存しない）
   const accordions = document.querySelectorAll(".js-accordion");
   accordions.forEach((accordion) => {
-    const items = accordion.querySelectorAll(".js-accordion__item");
+    const items = Array.from(accordion.querySelectorAll(".js-accordion__item"));
     const shouldOpenFirst = !accordion.classList.contains("js-accordion--initially-closed");
 
     const setAccordionState = (item, isOpen) => {
@@ -176,26 +242,34 @@ document.addEventListener("DOMContentLoaded", () => {
       item.classList.toggle("is-open", isOpen);
       title.classList.toggle("is-open", isOpen);
       content.classList.toggle("is-open", isOpen);
-      title.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      content.setAttribute("aria-hidden", isOpen ? "false" : "true");
+      title.setAttribute("aria-expanded", String(isOpen));
+      content.setAttribute("aria-hidden", String(!isOpen));
+      content.style.removeProperty("max-height");
     };
 
     items.forEach((item, index) => {
+      const title = item.querySelector(".js-accordion__title");
+      if (!title) {
+        return;
+      }
+
+      title.setAttribute("role", "button");
+      title.setAttribute("tabindex", "0");
       setAccordionState(item, shouldOpenFirst && index === 0);
-    });
 
-    accordion.addEventListener("click", (event) => {
-      const title = event.target.closest(".js-accordion__title");
-      if (!title || !accordion.contains(title)) {
-        return;
-      }
+      title.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        setAccordionState(item, !item.classList.contains("is-open"));
+      });
 
-      const item = title.closest(".js-accordion__item");
-      if (!item) {
-        return;
-      }
-
-      setAccordionState(item, !item.classList.contains("is-open"));
+      title.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter" && event.key !== " ") {
+          return;
+        }
+        event.preventDefault();
+        setAccordionState(item, !item.classList.contains("is-open"));
+      });
     });
   });
 
@@ -227,47 +301,6 @@ document.addEventListener("DOMContentLoaded", () => {
   //     });
   //   });
   // }
-
-  // Swiperの初期化
-  if (window.Swiper && document.querySelector(".swiper")) {
-    new Swiper(".swiper", {
-      loop: true,
-      allowTouchMove: false,
-      autoplay: {
-        delay: 0,
-        disableOnInteraction: false,
-      },
-      speed: 6000,
-      spaceBetween: 10,
-     // slidesPerView: 1,
-
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-
-      breakpoints: {
-        500: {
-          slidesPerView: 3,
-        },
-        1024: {
-          slidesPerView: 4,
-        },
-        1440: {
-          slidesPerView: 5,
-        },
-      },
-    });
-  }
-
-  if (window.ScrollTrigger) {
-    ScrollTrigger.refresh();
-    window.addEventListener("load", () => ScrollTrigger.refresh());
-  }
 
   // トップへ戻るボタンの表示制御
 
@@ -302,4 +335,9 @@ document.addEventListener("DOMContentLoaded", () => {
   notes.forEach((note) => {
     note.classList.add("is-animated");
   });
+
+  if (window.ScrollTrigger) {
+    ScrollTrigger.refresh();
+    window.addEventListener("load", () => ScrollTrigger.refresh());
+  }
 });
